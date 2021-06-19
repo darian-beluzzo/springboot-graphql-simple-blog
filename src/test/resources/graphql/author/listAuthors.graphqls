@@ -1,0 +1,8 @@
+query ListAuthors {
+    listAuthors {
+        id
+        name
+        username
+        email
+    }
+}

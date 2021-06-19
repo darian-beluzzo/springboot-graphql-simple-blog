@@ -1,0 +1,8 @@
+query GetAuthorById($id: Long!) {
+    getAuthorById(id: $id){
+        id
+        name
+        username
+        email
+    }
+}

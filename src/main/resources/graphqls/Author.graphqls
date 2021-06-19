@@ -1,0 +1,33 @@
+scalar Long
+
+type Author {
+    id: Long!
+    name: String!
+    username: String!
+    email: String!
+    address: Address
+    posts: [Post]
+}
+
+input AuthorInput {
+    name: String!
+    username: String!
+    email: String!
+}
+
+input AuthorChangesInput {
+    id: Long!
+    name: String!
+    email: String!
+}
+
+extend type Query {
+    listAuthors: [Author]
+    getAuthorById(id: Long!): Author
+}
+
+extend type Mutation {
+    createAuthor(author: AuthorInput!): Author
+    updateAuthor(author: AuthorChangesInput!): Author
+    deleteAuthor(id: Long!): Boolean
+}

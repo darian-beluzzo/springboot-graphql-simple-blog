@@ -1,0 +1,33 @@
+scalar Long
+
+type Post {
+    id: Long!
+    title: String!
+    body: String!
+    author: Author!
+    comments: [Comment]
+}
+
+input PostInput {
+    title: String!
+    body: String!
+    postId: ID!
+}
+
+input PostChangesInput {
+    id: Long!
+    title: String!
+    body: String!
+    postId: Long!
+}
+
+extend type Query {
+    listPosts: [Post]
+    getPost(id: Long!): Post
+}
+
+extend type Mutation {
+    createPost(post: PostInput!): Post
+    updatePost(post: PostChangesInput!): Post
+    deletePost(id: Long!): Boolean
+}

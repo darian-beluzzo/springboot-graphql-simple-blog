@@ -1,0 +1,57 @@
+mutation {
+  createAuthor(authorInput: {
+    name: "John Doe"
+    username: "john.doe"
+    email: "john.doe@email.com"
+  }){
+    id
+    name
+    username
+    email
+  }
+}
+
+mutation {
+  createAddress(addressInput: {
+    zipcode: "12345"
+    street: "Wall Street"
+    suite: "111"
+    city: "New York"
+    state: "new York"
+  }){
+    id
+    zipcode
+    street
+    suite
+    city
+    state
+  }
+}
+
+{
+  listAuthors {
+    id
+    name
+    username
+    email
+    address {
+      id
+      zipcode
+	street
+	suite
+	city
+	state
+    }
+  }
+}
+
+{
+  getAuthor(id: -1) {
+    id
+    name
+    username
+    email
+
+  }
+}
+

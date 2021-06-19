@@ -1,0 +1,35 @@
+scalar Long
+
+type Comment {
+    id: Long!
+    name: String!
+    email: String!
+    body: String!
+    postId: Int!
+}
+
+input CommentInput {
+    name: String!
+    email: String!
+    body: String!
+    postId: Long!
+}
+
+input CommentChangesInput {
+    id: Long!
+    name: String!
+    email: String!
+    body: String!
+    postId: Long!
+}
+
+extend type Query {
+    listComments: [Comment]
+    getComment(id: Long!): Comment
+}
+
+extend type Mutation {
+    createComment(comment: CommentInput!): Comment
+    updateComment(comment: CommentChangesInput!): Comment
+    deleteComment(id: Long!): Boolean
+}
